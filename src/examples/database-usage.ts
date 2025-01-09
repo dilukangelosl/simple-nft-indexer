@@ -84,7 +84,11 @@ async function main() {
     // Get all tokens owned by an address
     const ownerAddress = "0x9E3c0Ac6d9cBFBa8DDEd606f04b80bC4766DF47b";
     const ownedTokens = await indexer.getOwnerTokens(ownerAddress);
-    console.log(`Tokens owned by ${ownerAddress}:`, ownedTokens);
+    console.log(`Token IDs owned by ${ownerAddress}:`, ownedTokens);
+
+    // Get full token records including metadata
+    const fullTokenRecords = await indexer.getOwnerTokensFull(ownerAddress);
+    console.log(`Full token records owned by ${ownerAddress}:`, fullTokenRecords);
 
     // Get database table information
     const tableInfo = await db.getTableInfo();

@@ -455,6 +455,17 @@ export class NFTIndexer {
     return nfts.filter(nft => nft.owner === owner).map(nft => nft.tokenId);
   }
 
+  async getOwnerTokensFull(owner: string): Promise<any[]> {
+    if (this.db instanceof IndexerDB) {
+      // For LevelDB, we don't have full records
+      const tokenIds = await this.db.getOwnerTokens(owner);
+      return tokenIds.map(tokenId => ({ tokenId, owner }));
+    }
+    // For PostgreSQL, return full NFT records
+    const nfts = await this.db.getNFTsByContract(this.contract.target as string);
+    return nfts.filter(nft => nft.owner === owner);
+  }
+
   // Cleanup
   async close(): Promise<void> {
     if (this.db instanceof IndexerDB) {

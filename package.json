@@ -1,6 +1,6 @@
 {
   "name": "simple-nft-indexer",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Efficient NFT contract indexer with smart caching and minimal RPC calls.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
