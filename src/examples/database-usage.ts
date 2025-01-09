@@ -45,7 +45,7 @@ async function main() {
     // Initialize indexer with custom configuration - using PostgreSQL
     indexer = new NFTIndexer(contractAddress, provider, {
       startBlock: 3680981, // Start from genesis
-      batchSize: 2000, // Smaller batch size to avoid timeouts
+      batchSize: 5000, // Smaller batch size to avoid timeouts
       cacheTimeout: 3600000, // 1 hour
       maxConcurrent: 2, // Limit concurrent requests
       pollInterval: 15000, // Increased poll interval
