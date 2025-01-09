@@ -24,6 +24,8 @@ export interface TokenMetadata {
 }
 
 // Configuration interfaces
+import { Database } from './db/index';
+
 export interface IndexerConfig {
   startBlock?: number;
   batchSize?: number;
@@ -31,6 +33,7 @@ export interface IndexerConfig {
   maxConcurrent?: number;
   dbPath?: string;
   pollInterval?: number;
+  database?: Database; // Optional PostgreSQL database instance
 }
 
 export interface CacheConfig {
